@@ -9,13 +9,13 @@ describe("Modal Component", () => {
         <Modal.Header closeButton>
           <Modal.Title>Email me!</Modal.Title>
         </Modal.Header>
-        <Modal.Body>seliang@usc.edu</Modal.Body>
+        <Modal.Body>sarahliang07@gmail.com</Modal.Body>
         <Modal.Footer>
           <button variant="secondary" onClick={() => {}}>
             Close
           </button>
         </Modal.Footer>
-      </Modal>
+      </Modal>,
     );
 
     // Check modal components being rendered
@@ -29,19 +29,19 @@ describe("Modal Component", () => {
         <Modal.Header closeButton>
           <Modal.Title>Email me!</Modal.Title>
         </Modal.Header>
-        <Modal.Body>seliang@usc.edu</Modal.Body>
+        <Modal.Body>sarahliang07@gmail.com</Modal.Body>
         <Modal.Footer>
           <button variant="secondary" onClick={() => {}}>
             Close
           </button>
         </Modal.Footer>
-      </Modal>
+      </Modal>,
     );
 
     // Check modal title being rendered
     expect(screen.getByText("Email me!")).toBeInTheDocument();
     //   Check modal email being rendered
-    expect(screen.getByText("seliang@usc.edu")).toBeInTheDocument();
+    expect(screen.getByText("sarahliang07@gmail.com")).toBeInTheDocument();
   });
 
   it("modal closes when close button clicked", () => {
@@ -52,7 +52,7 @@ describe("Modal Component", () => {
         <Modal.Header closeButton>
           <Modal.Title>Email me!</Modal.Title>
         </Modal.Header>
-        <Modal.Body>seliang@usc.edu</Modal.Body>
+        <Modal.Body>sarahliang07@gmail.com</Modal.Body>
         <Modal.Footer>
           <button
             variant="secondary"
@@ -63,7 +63,7 @@ describe("Modal Component", () => {
             Close
           </button>
         </Modal.Footer>
-      </Modal>
+      </Modal>,
     );
 
     // force click the close button
@@ -79,17 +79,19 @@ describe("Modal Component", () => {
         <Modal.Header closeButton>
           <Modal.Title>Email me!</Modal.Title>
         </Modal.Header>
-        <Modal.Body>seliang@usc.edu</Modal.Body>
+        <Modal.Body>sarahliang07@gmail.com</Modal.Body>
         <Modal.Footer>
           <button variant="secondary" onClick={() => {}}>
             Close
           </button>
         </Modal.Footer>
-      </Modal>
+      </Modal>,
     );
 
     // Check elements of modal not being rendered
     expect(screen.queryByText("Email me!")).not.toBeInTheDocument();
-    expect(screen.queryByText("seliang@usc.edu")).not.toBeInTheDocument();
+    expect(
+      screen.queryByText("sarahliang07@gmail.com"),
+    ).not.toBeInTheDocument();
   });
 });

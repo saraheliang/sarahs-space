@@ -31,7 +31,7 @@ export default function Contact() {
             <Modal.Header closeButton>
               <Modal.Title>Email me!</Modal.Title>
             </Modal.Header>
-            <Modal.Body>seliang@usc.edu</Modal.Body>
+            <Modal.Body>sarahliang07@gmail.com</Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={handleClose}>
                 Close
