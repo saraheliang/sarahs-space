@@ -1,4 +1,4 @@
-const baseUrl = process.env.REACT_APP_API_BASE_URL;
+const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
 // READING
 export function fetchPosts() {
@@ -11,7 +11,7 @@ export function fetchPostById(postId) {
   return fetch(`${baseUrl}/posts/${postId}?_expand=user&_embed=comments`).then(
     (response) => {
       return response.json();
-    }
+    },
   );
 }
 
@@ -19,7 +19,7 @@ export function fetchProjectById(projectId) {
   return fetch(`${baseUrl}/projects/${projectId}?_expand=user`).then(
     (response) => {
       return response.json();
-    }
+    },
   );
 }
 // export function fetchUser/usernameById(userId) {
