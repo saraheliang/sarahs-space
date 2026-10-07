@@ -1,25 +1,33 @@
-.parent {
-  /* height: 100%;
-  width: 100%; */
+@import url("https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap");
+
+/* Global styles */
+body {
+  margin: 0;
+  font-family: "Arimo", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family:
+    source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.home-container {
   width: 100%;
-  height: 92vh;
-  /* background-color: green; */
+  /* height: 92vh; */
+  padding-top: 5%;
 }
-.child {
-  width: 50%;
-  /* background-color: red; */
+
+.header {
+  text-align: center;
 }
-.image {
-  width: 50%;
-  /* background-color: blue; */
-}
-img {
-  width: 500px;
-}
+
 .social-media a {
   margin-right: 1em;
 }
 
+/* Rotating role text */
 .rotating-role {
   display: inline-block;
   animation: role-entrance 0.7s ease both;
@@ -36,43 +44,124 @@ img {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .rotating-role {
-    animation: none;
-  }
-}
-
+/* Projects section */
 .projects-container {
   margin-bottom: 5%;
 }
 
-.image {
-  animation-name: floating;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-  margin-left: 30px;
-  margin-top: 5px;
+/* Room objects */
+.room-objects-container {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 5%;
+  padding-top: 12%;
+  padding-bottom: 12%;
 }
 
+.room-object {
+  min-width: 0;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+  transform: translate(var(--room-object-x, 0), var(--room-object-y, 0));
+}
+
+.room-object:nth-child(1) {
+  --room-object-x: -0%;
+  --room-object-y: -45%;
+}
+
+.room-object:nth-child(2) {
+  --room-object-x: 0%;
+  --room-object-y: 34%;
+}
+
+.room-object:nth-child(3) {
+  --room-object-x: -12%;
+  --room-object-y: -22%;
+}
+
+.room-object:nth-child(4) {
+  --room-object-x: -15%;
+  --room-object-y: 40%;
+}
+
+.room-object:hover {
+  transform: translate(var(--room-object-x, 0), var(--room-object-y, 0))
+    scale(1.08);
+}
+
+.room-object img {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+  filter: drop-shadow(0 0.4rem 0.35rem rgb(0 0 0 / 22%));
+}
+
+.laptop img {
+  width: 70%;
+  height: 70%;
+  transform: rotate(-10deg);
+}
+
+.bagel img {
+  transform: rotate(120deg);
+}
+
+@media (max-width: 600px) {
+  .room-objects-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem 1.5rem;
+    padding: 3rem 0;
+  }
+
+  .room-object:nth-child(1) {
+    --room-object-x: -8%;
+    --room-object-y: -15%;
+  }
+
+  .room-object:nth-child(2) {
+    --room-object-x: 8%;
+    --room-object-y: 15%;
+  }
+
+  .room-object:nth-child(3) {
+    --room-object-x: -8%;
+    --room-object-y: 15%;
+  }
+
+  .room-object:nth-child(4) {
+    --room-object-x: 8%;
+    --room-object-y: -15%;
+  }
+}
+
+/* Other imagery */
 .sunset-image {
   transition: transform 0.3s;
   margin: 0 auto;
 }
+
 .sunset-image:hover {
-  transform: scale(
-    1.1
-  ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  transform: scale(1.1);
 }
 
-@keyframes floating {
-  0% {
-    transform: translate(0, 0px);
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .rotating-role {
+    animation: none;
   }
-  50% {
-    transform: translate(0, 15px);
+
+  .room-object {
+    transition: none;
   }
-  100% {
-    transform: translate(0, -0px);
+
+  .room-object:hover {
+    transform: translate(var(--room-object-x, 0), var(--room-object-y, 0))
+      scale(1.04);
   }
 }

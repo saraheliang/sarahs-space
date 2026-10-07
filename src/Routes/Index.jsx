@@ -1,6 +1,11 @@
 // import { Link, useLoaderData } from "react-router-dom";
 import "../Styling/Index.css";
-import profileImage from "../Assets/bunny-rocket.png";
+import bunnyRocket from "../Assets/bunny-rocket.png";
+import sugarFrog from "../Assets/sugar-frog.png";
+import bagel from "../Assets/bagel.png";
+import dsi from "../Assets/dsi.png";
+import plate from "../Assets/plate.png";
+import laptop from "../Assets/laptop.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { Image } from "react-bootstrap";
@@ -8,7 +13,13 @@ import Projects from "../Components/Projects";
 import { useEffect, useState } from "react";
 
 export default function Index() {
-  const roles = ["software developer", "artist", "foodie", "photographer"];
+  const roles = [
+    "software developer",
+    "artist",
+    "foodie",
+    "photographer",
+    "creative/creative technologist",
+  ];
   const [roleIndex, setRoleIndex] = useState(0);
 
   useEffect(() => {
@@ -25,12 +36,33 @@ export default function Index() {
 
   return (
     <>
-      <div className="parent index-page d-flex align-items-center">
-        <div className="child">
+      {/* TO DO - format this to be bottom center */}
+      <div className="home-container">
+        <div className="header">
+          {/* <h1>Sarah's Space</h1> */}
+          <h4>Welcome to my space — take a look around.</h4>
+        </div>
+
+        <div className="room-objects-container">
+          <div className="room-object laptop">
+            <Image src={laptop} fluid />
+          </div>
+          <div className="room-object">
+            <Image src={dsi} fluid />
+          </div>
+          <div className="room-object">
+            <Image src={plate} fluid />
+          </div>
+          <div className="room-object bagel">
+            <Image src={bagel} fluid />
+          </div>
+        </div>
+
+        <div className="description">
           <h1>
             Hi, I'm <b>Sarah</b>!
             <br />
-            I'm staying curious as a <br />
+            I'm staying curious as a{" "}
             <b
               className="rotating-role"
               key={roles[roleIndex]}
@@ -38,13 +70,12 @@ export default function Index() {
             >
               {roles[roleIndex]}
             </b>
-            .
           </h1>
           <p>
-            I believe in spaces for exploration, trial-and-error, and growth ✨.
-            Currently learning to make more mistakes.
+            I believe in spaces for exploration, trial-and-error, and growth ⁠—
+            currently learning to make more mistakes.
           </p>
-          <div className="social-media">
+          {/* <div className="social-media">
             <a
               href="https://www.linkedin.com/in/saraheliang/"
               target="_blank"
@@ -59,15 +90,12 @@ export default function Index() {
             >
               <FontAwesomeIcon icon={faGithub} size="2x" />
             </a>
-          </div>
-        </div>
-        <div className="image d-flex justify-content-center">
-          <Image src={profileImage} fluid />
+          </div> */}
         </div>
       </div>
-      <div className="projects-container">
+      {/* <div className="projects-container">
         <Projects />
-      </div>
+      </div> */}
     </>
   );
 }
